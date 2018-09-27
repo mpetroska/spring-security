@@ -1,0 +1,20 @@
+spring:
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/security
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  logging:
+    level:
+      root: WARN
+      org.springframework.web: INFO
+      org.springframework.security: INFO
+  output:
+    ansi:
+      enabled: always
+  thymeleaf:
+    cache: false

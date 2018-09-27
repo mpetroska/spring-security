@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hello Spring Security</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/css/main.css" th:href="@{/css/main.css}" />
+</head>
+<body>
+    <div>
+        <form action="#" th:action="@{/user/registration}" method="post" th:object="${user}">
+            <div>
+                <label for="first">First name</label>
+                <input id="first" type="text" th:field="*{firstname}" />
+                <span th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}">Required</span>
+            </div>
+            <div>
+                <label>Last name</label>
+                <input type="text" th:field="*{lastname}" />
+                <span th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}">Required</span>
+            </div>
+            <div>
+                <label>Username</label>
+                <input type="text" th:field="*{username}" />
+                <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Required</span>
+            </div>
+            <div>
+                <label>Password</label>
+                <input type="password" th:field="*{password}" />
+                <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+            </div>
+            <input type="submit" value="Register" />
+        </form>
+    </div>
+<p><a href="/index" th:href="@{/index}">Back to home page</a></p>
+</body>
+</html>

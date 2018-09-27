@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hello Spring Security</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/css/main.css" th:href="@{/css/main.css}" />
+</head>
+<body>
+<div class="logout" th:if="${authenticated}">
+    <div>
+        <form action="#" th:action="@{/logout}" method="post">
+            <input type="submit" value="Logout" />
+        </form>
+    </div>
+</div>
+<h1>Role</h1>
+<span th:text="${role.getName()}"></span>
+<a th:href="@{'/admin/authority/' + ${role.getRole_id()} + '/new'}">Create new</a>
+<table>
+    <tr th:each="authority: ${role.getAuthorities()}">
+        <th th:text="${authority.getName()}"></th>
+        <th>
+            <a th:href="@{'/admin/authority/' + ${role.getRole_id()} + '/delete/' + ${authority.getAuthority_id()}}">Delete</a>
+        </th>
+    </tr>
+</table>
+<p><a href="/index" th:href="@{/admin/roles}">Back to roles page</a></p>
+</body>
+</html>
